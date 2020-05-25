@@ -35,8 +35,8 @@ impl ocaml::Custom for A {
         },
     };
 
-    const USED: usize = 1;
-    const MAX: usize = 1000;
+    const USED: usize = 0;
+    const MAX: usize = 1;
 }
 
 impl ocaml::Custom for B {
@@ -49,8 +49,8 @@ impl ocaml::Custom for B {
         },
     };
 
-    const USED: usize = 1;
-    const MAX: usize = 1000;
+    const USED: usize = 0;
+    const MAX: usize = 1;
 }
 
 impl ocaml::Custom for C {
@@ -63,8 +63,8 @@ impl ocaml::Custom for C {
         },
     };
 
-    const USED: usize = 1;
-    const MAX: usize = 1000;
+    const USED: usize = 0;
+    const MAX: usize = 1;
 }
 
 #[derive(Clone)]
@@ -79,6 +79,11 @@ struct C {
     x: f32,
     y: f64,
     z: f64,
+}
+
+#[ocaml::func]
+pub fn get_a_x(p: Vec<Pointer<A>>) -> Vec<String> {
+    p.into_iter().map(|a| a.as_ref().x.clone()).collect()
 }
 
 #[ocaml::func]

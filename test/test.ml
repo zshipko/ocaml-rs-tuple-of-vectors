@@ -4,7 +4,13 @@ let () =
     assert (Array.length a = i);
     assert (Array.length b = i);
     assert (Array.length c = i);
-    Printf.printf "%d\n%!" i;
+    let x = Ocaml_rust_starter.get_a_x a in
+    assert (Array.length x = i);
+    for i = 0 to i - 1 do
+      assert (x.(i) = Printf.sprintf "%d" i)
+    done;
+    let s = Printf.sprintf "%d" i in
+    Printf.printf "%s\n%!" s;
     if i mod 10 = 0 then
       let () = Gc.print_stat stdout in
       let () = Gc.minor () in
