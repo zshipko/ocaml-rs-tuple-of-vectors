@@ -1,3 +1,6 @@
+
+(include_subdirs unqualified)
+
 (executables
  (libraries ocaml-rust-starter)
  (names test)

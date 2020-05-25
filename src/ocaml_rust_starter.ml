@@ -1,1 +1,7 @@
-external hello_world: unit -> string = "hello_world"
+type a
+
+type b
+
+type c
+
+external hello_world: int -> a array * b array * c array = "hello_world"
